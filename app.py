@@ -40,7 +40,7 @@ from four import (
 DEFAULT_RATIO = 1.0 - DEFAULT_BYPASS_PCT / 100.0
 
 from chaudiere import T_TARGET_CONV
-from simulation.main_simulation import simuler_complet
+from main_simulation import simuler_complet
 from turbo_train import TurboBlowerTrain
 from drying_tower import DryingTower
 from air_filter import AirFilter
