@@ -1236,21 +1236,14 @@ def render_page_conv_absorption(results, T_in_lits_user):
     T_outs = conv['T_out_lits']
     taus   = conv['tau_lits']
 
-    tau_global = conv.get('tau_final_pct', 0.0)
-    t_sim      = conv.get('t_simule_s', 0.0)
-    data_box(ax, 0.2, 11.0, [
-        (f"GLOBAL τ = {tau_global:.2f}", "%"),
-        (f"Sim. time = {t_sim:.1f}", "s"),
-    ], w=3.00, color='#00FF88')
+   
 
-    data_box(ax, CX_LITS - LIT_W / 2 - 2.80, Y_LIT1 - 0.40, [
+    data_box(ax, CX_LITS - LIT_W / 2 - 5.80, Y_LIT1 - 0.40, [
         ('INLET GAS',),
         (f"T={T_in_lits_user[0]:.2f}", "°C"),
         ('SO₂ + O₂ + N₂',),
     ], w=2.60)
-    pipe(ax, CX_LITS - LIT_W / 2 - 0.15, Y_LIT1,
-         CX_LITS - LIT_W / 2, Y_LIT1,
-         color=C_GAZ_JAUNE, lw=3.5, tag='F-CONV-IN')
+    
 
     draw_bed_unisim(ax, CX_LITS, Y_LIT1, LIT_W, LIT_H, 1,
                     T_ins[0], T_outs[0], taus[0], dp_kpa=dp_lits[0])
@@ -1337,12 +1330,7 @@ def render_page_conv_absorption(results, T_in_lits_user):
     pipe(ax, CX_JD03, Y_LIT4 + TOUR_H / 2,
          CX_JD03, Y_LIT4 + TOUR_H / 2 + 1.00,
          color=C_AIR, lw=2.5)
-    data_box(ax, CX_JD03 - 1.25, Y_LIT4 + TOUR_H / 2 + 1.05, [
-        ('TREATED GAS → STACK',),
-        (f"T   = {jd03.get('T_gas_out',   0):.2f}", "°C"),
-        (f"η   = {jd03.get('eff_abs',     0):.2f}", "%"),
-        (f"SO₃ = {jd03.get('ppm_SO3_out', 0):.2f}", "ppm"),
-    ], w=2.60)
+   
 
     return fig
 
