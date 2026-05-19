@@ -1243,7 +1243,7 @@ def render_page_conv_absorption(results, T_in_lits_user):
         (f"t simulé = {t_sim:.1f}", "s"),
     ], w=3.00, color='#00FF88')
 
-    data_box(ax, CX_LITS - LIT_W / 2 - 2.80, Y_LIT1 - 0.40, [
+    data_box(ax, CX_LITS - LIT_W / 2 - 3.80, Y_LIT1 - 0.40, [
         ('GAZ ENTRANT',),
         (f"T={T_in_lits_user[0]:.2f}", "°C"),
         ('SO₂ + O₂ + N₂',),
@@ -1337,7 +1337,7 @@ def render_page_conv_absorption(results, T_in_lits_user):
     pipe(ax, CX_JD03, Y_LIT4 + TOUR_H / 2,
          CX_JD03, Y_LIT4 + TOUR_H / 2 + 1.00,
          color=C_AIR, lw=2.5)
-    data_box(ax, CX_JD03 - 1.25, Y_LIT4 + TOUR_H / 2 + 1.05, [
+    data_box(ax, CX_JD03 - 1.25, Y_LIT4 + TOUR_H / 2 + 1.5, [
         ('GAZ TRAITÉ → CHEMINÉE',),
         (f"T   = {jd03.get('T_gas_out',   0):.2f}", "°C"),
         (f"η   = {jd03.get('eff_abs',     0):.2f}", "%"),
