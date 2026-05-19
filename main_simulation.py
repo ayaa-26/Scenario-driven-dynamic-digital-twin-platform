@@ -19,12 +19,12 @@ import numpy as np
 import streamlit as st
 from scipy.integrate import odeint
 
-from model.four import (
+from four import (
     Furnace,
     R_CONST, P_ABS,
 )
-from model.chaudiere     import solve_boiler_and_bypass, T_TARGET_CONV
-from model.absorption    import AbsorptionTowerInter, AbsorptionTowerFinal
+from chaudiere     import solve_boiler_and_bypass, T_TARGET_CONV
+from absorption    import AbsorptionTowerInter, AbsorptionTowerFinal
 
 
 # ═════════════════════════════════════════════════════════════════════
