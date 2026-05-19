@@ -1242,9 +1242,7 @@ def render_page_conv_absorption(results, T_in_lits_user):
         (f"T={T_in_lits_user[0]:.2f}", "°C"),
         ('SO₂ + O₂ + N₂',),
     ], w=2.60)
-    pipe(ax, CX_LITS - LIT_W / 2 - 0.15, Y_LIT1,
-         CX_LITS - LIT_W / 2, Y_LIT1,
-         color=C_GAZ_JAUNE, lw=3.5, tag='F-CONV-IN')
+    
 
     draw_bed_unisim(ax, CX_LITS, Y_LIT1, LIT_W, LIT_H, 1,
                     T_ins[0], T_outs[0], taus[0], dp_kpa=dp_lits[0])
@@ -1435,10 +1433,10 @@ if 'tank_system' not in st.session_state:
 # ══════════════════════════════════════════════════════════════════════
 tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
     "GLOBAL PROCESS",
-    " TRAITEMENT D'AIR",
-    "FOUR & CHAUDIERE",
-    "CONVERTISSEUR & ECHANGEURS",
-    "CONVERTISSEUR & ABSORPTION",
+    " AIR TREATMENT",
+    "BURNER & BOILER",
+    "CONVERTER & EXCHANGERS",
+    "CONVERTER & ABSORPTION",
     "DYNAMIQUE",
 ])
 
@@ -1446,7 +1444,7 @@ tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
 # TAB 1 — GLOBAL PROCESS
 # ══════════════════════════════════════════════════════════════════════
 with tab1:
-    with st.expander("⚙ PARAMÈTRES PROCÉDÉ", expanded=True):
+    with st.expander("⚙ process settings", expanded=True):
         c1, c2, c3, c4, c5 = st.columns(5)
         with c1:
             S_kgm = st.slider("Soufre (kg/min)", 500.0, 1500.0, DEFAULT_S, 10.0, key="g_s")
@@ -1543,7 +1541,7 @@ with tab1:
 # TAB 2 — TRAITEMENT AIR
 # ══════════════════════════════════════════════════════════════════════
 with tab2:
-    st.markdown('<div class="ctrl-panel"><div class="ctrl-title">⚙ PARAMÈTRES — TRAITEMENT AIR</div>',
+    st.markdown('<div class="ctrl-panel"><div class="ctrl-title">⚙ AIR TREATMENT SETTINGS</div>',
                 unsafe_allow_html=True)
     ca1, ca2, ca3, ca4, ca5 = st.columns(5)
     with ca1: Air_t2    = st.slider("Débit air (Nm³/h)",   250000.0, 500000.0, DEFAULT_AIR,  5000.0, key="at_air")
@@ -1582,7 +1580,7 @@ with tab2:
 # TAB 3 — FOUR DE COMBUSTION
 # ══════════════════════════════════════════════════════════════════════
 with tab3:
-    st.markdown('<div class="ctrl-panel"><div class="ctrl-title">⚙ PARAMÈTRES — FOUR & CHAUDIÈRE</div>',
+    st.markdown('<div class="ctrl-panel"><div class="ctrl-title">⚙ BURNER & BOILER SETTINGS</div>',
                 unsafe_allow_html=True)
     cb1, cb2, cb3, cb4, cb5, cb6 = st.columns(6)
     with cb1: S_t3     = st.slider("Soufre (kg/min)",    500.0,  1500.0, DEFAULT_S,           10.0, key="fb_s")
@@ -1613,7 +1611,7 @@ with tab3:
 # TAB 4 — CONVERTISSEUR & ABSORPTION
 # ══════════════════════════════════════════════════════════════════════
 with tab4:
-    st.markdown('<div class="ctrl-panel"><div class="ctrl-title">⚙ PARAMÈTRES — CONVERTISSEUR & ABSORPTION</div>',
+    st.markdown('<div class="ctrl-panel"><div class="ctrl-title">⚙ CONVERTER & ABSORPTION SETTINGS</div>',
                 unsafe_allow_html=True)
     cc1, cc2, cc3, cc4, cc5 = st.columns(5)
     with cc1: T_in_lit1 = st.slider("T entrée COUCHE 1 (°C)", 380.0, 450.0, float(T_TARGET_CONV), 1.0, key="cv_t1")
@@ -1642,7 +1640,7 @@ with tab4:
 # TAB 5 — ÉCHANGEURS
 # ══════════════════════════════════════════════════════════════════════
 with tab5:
-    st.markdown('<div class="ctrl-panel"><div class="ctrl-title">⚙ PARAMÈTRES — ÉCHANGEURS</div>',
+    st.markdown('<div class="ctrl-panel"><div class="ctrl-title">⚙ EXCHANGERS SETTINGS</div>',
                 unsafe_allow_html=True)
     hx_c1, hx_c2, hx_c3, hx_c4, hx_c5, hx_c6 = st.columns(6)
     with hx_c1: hx_S          = st.slider("Soufre (kg/min)",         500.0,   1500.0, DEFAULT_S,   10.0, key="hx_s")
