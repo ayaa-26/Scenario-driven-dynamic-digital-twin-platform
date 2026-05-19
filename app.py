@@ -30,7 +30,7 @@ import base64
 ROOT = os.path.join(os.path.dirname(__file__), '..')
 sys.path.insert(0, ROOT)
 
-from model.four import (
+from four import (
     DEFAULT_T_AIR_C  as DEFAULT_T_AIR,
     DEFAULT_T_SOUFRE_C as DEFAULT_T_S,
     DEFAULT_F_SOUFRE_KGMIN as DEFAULT_S,
@@ -39,22 +39,22 @@ from model.four import (
 )
 DEFAULT_RATIO = 1.0 - DEFAULT_BYPASS_PCT / 100.0
 
-from model.chaudiere import T_TARGET_CONV
+from chaudiere import T_TARGET_CONV
 from simulation.main_simulation import simuler_complet
 from turbo_train import TurboBlowerTrain
 from drying_tower import DryingTower
 from air_filter import AirFilter
 
 # ── Import échangeurs ─────────────────────────────────────────────────
-from model.exchangers import (
+from exchangers import (
     HPSuperheater1B, HotInterpassHX, ColdInterpassHX,
     Economizer3B,
     HP4AExchanger, LP4AExchanger, E4CExchanger, E4AExchanger,
 )
-from model.exchangers_page import render_page_exchangers
+from exchangers_page import render_page_exchangers
 
 # ── Import bacs ───────────────────────────────────────────────────────
-from model.bac import TankSystem, FlowIn, FlowOut
+from bac import TankSystem, FlowIn, FlowOut
 
 
 # ══════════════════════════════════════════════════════════════════════
